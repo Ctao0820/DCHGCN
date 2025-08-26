@@ -523,7 +523,7 @@ for (FLAG, train_num, Scale) in [(2, 5, 500)]:
         net_input = np.array(data, np.float32)
         net_input = torch.from_numpy(net_input.astype(np.float32)).to(device)
 
-        net = model.DDCHCC(height, width, bands, class_count, Q, W_e=W,
+        net = model.DCH_GCN(height, width, bands, class_count, Q, W_e=W,
                               Hyperedge=hyperedges, H=incidence_mat_H, D_v=D_v, D_e=D_e)
 
         print('参数量:'+str(sum(p.numel() for p in net.parameters())))
